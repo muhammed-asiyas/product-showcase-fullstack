@@ -1,0 +1,37 @@
+.navbar {
+  background-color: #333;
+  padding: 10px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-showcase-head {
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    margin-left: 28px;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 567px) {
+    .navbar {
+        height: 60px;
+    }
+    .product-showcase-head {
+        font-size: 20px;
+    }
+    .nav-item {
+        margin-left: 10px;
+    }
+
+}
