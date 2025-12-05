@@ -1,20 +1,104 @@
-table {
+
+.admin-container {
+  padding: 20px;
+  background: #ffffff;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+
+.tailspin-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  color: #687468ff;
+}
+
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+.enquiry-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  min-width: 800px;
 }
 
-table th, table td {
+.enquiry-table th,
+.enquiry-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 10px;
   text-align: left;
+  font-size: 15px;
 }
 
-table th {
+.enquiry-table th {
   background-color: #f2f2f2;
+  font-weight: 600;
 }
+
+
+.enquiry-table tr:hover {
+  background-color: #f9f9f9;
+}
+
 
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 992px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .enquiry-table th,
+  .enquiry-table td {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .enquiry-table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .table-responsive::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
 }
