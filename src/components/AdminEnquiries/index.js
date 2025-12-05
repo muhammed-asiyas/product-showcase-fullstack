@@ -14,7 +14,7 @@ const AdminEnquiries = () => {
 
   const fetchEnquiries = async () => {
   try {
-    const response = await api.get('/api/enquiries');
+    const response = await api.get('/enquiries');
     setEnquiries(response.data);
   } catch (err) {
     setError('Failed to fetch enquiries.');
@@ -27,11 +27,10 @@ const deleteEnquiry = async (id) => {
   if (!window.confirm("Are you sure you want to delete this enquiry?")) return;
 
   try {
-    await api.delete(`/api/enquiries/${id}`);
+    await api.delete(`/enquiries/${id}`);
     setEnquiries(enquiries.filter((en) => en.id !== id));
   } catch (err) {
     alert("Failed to delete enquiry.");
-    console.error(err);
   }
 };
 
