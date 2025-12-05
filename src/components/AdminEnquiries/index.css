@@ -24,7 +24,7 @@
 
 .table-responsive {
   width: 100%;
-  overflow-x: auto;
+  overflow-y: auto;
 }
 
 
@@ -101,4 +101,19 @@
     background: #ccc;
     border-radius: 10px;
   }
+}
+
+
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background: #d93636;
 }

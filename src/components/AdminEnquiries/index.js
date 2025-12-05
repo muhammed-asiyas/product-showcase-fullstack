@@ -20,9 +20,20 @@ const AdminEnquiries = () => {
       setEnquiries(response.data);
     } catch (err) {
       setError('Failed to fetch enquiries.');
-      console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const deleteEnquiry = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this enquiry?")) return;
+
+    try {
+      await api.delete(`/enquiries/${id}`);
+      setEnquiries(enquiries.filter((en) => en.id !== id));
+    } catch (err) {
+      alert("Failed to delete enquiry.");
+      console.error(err);
     }
   };
 
@@ -48,12 +59,13 @@ const AdminEnquiries = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Product Name</th>
+                <th>Product</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Message</th>
                 <th>Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -66,6 +78,14 @@ const AdminEnquiries = () => {
                   <td>{enquiry.phone}</td>
                   <td>{enquiry.message}</td>
                   <td>{new Date(enquiry.created_at).toLocaleDateString()}</td>
+                  <td>
+                    <button
+                      className="delete-btn"
+                      onClick={() => deleteEnquiry(enquiry.id)}
+                    >
+                      Delete ❌
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
