@@ -17,6 +17,7 @@
     color: white;
     text-decoration: none;
     margin-left: 28px;
+    font-size: 16px;
 }
 
 .nav-item:hover {
@@ -32,6 +33,7 @@
     }
     .nav-item {
         margin-left: 10px;
+        font-size: 10px;
     }
 
 }

@@ -37,20 +37,19 @@ const ProductDetails = () => {
 
   const handleEnquiryChange = (e) => {
     setEnquiryData({ ...enquiryData, [e.target.name]: e.target.value });
-    setSubmitStatus(null); // Clear status on new input
+    setSubmitStatus(null); 
   };
 
   const handleEnquirySubmit = async (e) => {
     e.preventDefault();
     setSubmitStatus(null);
     
-    // Add the productId to the data being sent
     const dataToSend = { ...enquiryData, productId: id };
 
     try {
       await api.post('/enquiries', dataToSend);
       setSubmitStatus('success');
-      setEnquiryData({ name: '', email: '', phone: '', message: '' }); // Clear form
+      setEnquiryData({ name: '', email: '', phone: '', message: '' }); 
     } catch (err) {
       setSubmitStatus('error');
       console.error('Enquiry submission failed:', err.response ? err.response.data : err.message);
@@ -80,7 +79,6 @@ const ProductDetails = () => {
       <p><strong>Price:</strong> ₹{product.price}</p>
       <p>{product.long_desc}</p>
 
-      {/* Enquiry Form */}
       <div className="enquiry-section">
         <h3>Enquire About This Product</h3>
         <form onSubmit={handleEnquirySubmit} className="enquiry-form">

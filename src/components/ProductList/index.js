@@ -14,12 +14,11 @@ const ProductList = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
-  const limit = 9; // Use a reasonable limit for the frontend display
+  const limit = 8; 
 
   useEffect(() => {
     fetchProducts();
-  }, [page, search, category]); // Re-fetch when page, search, or category changes
-
+  }, [page, search, category]); 
   const fetchProducts = async () => {
     setLoading(true);
     setError(null);
@@ -43,7 +42,7 @@ const ProductList = () => {
   const handleCategoryChange = (e) => setCategory(e.target.value);
 
   const handleApplyFilters = () => {
-    setPage(1); // Reset page to 1 when filters change
+    setPage(1); 
     fetchProducts();
   };
   console.log(products);
@@ -71,8 +70,8 @@ const ProductList = () => {
           <div key={product.id} className="product-card">
             <img className="product-image" src={product.image_url} />
             <h3>{product.name}</h3>
-            <p>{product.short_desc}</p>
-            <p>
+            <p className="product-short-desc">{product.short_desc}</p>
+            <p className="product-price">
               <strong>Price:</strong> ₹{product.price}
             </p>
             <Link className="view-details-link" to={`/products/${product.id}`}>View Details</Link>
@@ -121,16 +120,12 @@ const ProductList = () => {
           value={search}
           onChange={handleSearchChange}
         />
-        {/* You might want a <select> for categories in a real app */}
         <input
           type="text"
           placeholder="Filter by category"
           value={category}
           onChange={handleCategoryChange}
         />
-        {/* Note: Filters apply on input change in this simple example, 
-        but an explicit button is often better for performance. 
-        I've simplified to only call fetchProducts on state change (in useEffect). */}
       </div>
 
       {renderProducts()}

@@ -81,7 +81,7 @@ const deleteEnquiry = async (id) => {
                       className="delete-btn"
                       onClick={() => deleteEnquiry(enquiry.id)}
                     >
-                      Delete ❌
+                      Delete
                     </button>
                   </td>
                 </tr>
